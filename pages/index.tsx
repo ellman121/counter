@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux'
+
+import { gameState } from '../redux/reducers/gameStateReducer'
+import { gameStateReset, gameStateTransform } from '../redux/actions/gameActions'
 
 class App extends React.Component {
   render() {
@@ -8,4 +12,7 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(
+  (s: {gameState: gameState}) => ({gameState: s.gameState}),
+  { gameStateReset, gameStateTransform }
+)(App);

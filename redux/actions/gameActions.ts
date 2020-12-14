@@ -1,6 +1,6 @@
-import action from 'redux'
+import { AnyAction } from 'redux'
 
-export const enum ACTION_TYPES {
+export enum ACTION_TYPES {
     apply = "APPLY",
     reset = "RESET",
 }
@@ -11,13 +11,13 @@ export interface GAME_STATE_TRANSFORM {
     playerId?: string
 }
 
-export const gameStateTransform = (playerId: string, value: number) => ({
+export const gameStateTransform = (playerId: string, value: number): AnyAction => ({
     type: ACTION_TYPES.apply,
     playerId,
     value
 })
 
-export const gameStateReset = (value: number) => ({
+export const gameStateReset = (value: number): AnyAction => ({
     type: ACTION_TYPES.reset,
     value
 })
