@@ -6,6 +6,7 @@ import { gameStateReset, gameStateTransform } from '../redux/actions/gameActions
 
 class App extends React.Component {
   render() {
+    console.log("hello wrld")
     return (
       <h1> Hello World! </h1>
     );
