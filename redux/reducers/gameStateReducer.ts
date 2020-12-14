@@ -1,5 +1,4 @@
 import { HYDRATE } from 'next-redux-wrapper'
-import { platform } from 'os'
 import * as R from 'ramda'
 import {ACTION_TYPES, GAME_STATE_TRANSFORM} from '../actions/gameActions'
 
@@ -27,7 +26,7 @@ const DEFAULT_GAME_STATE = {
     ]
 }
 
-export default (state: gameState = DEFAULT_GAME_STATE, action: GAME_STATE_TRANSFORM): gameState => {
+const gameStateReducer = (state: gameState = DEFAULT_GAME_STATE, action: GAME_STATE_TRANSFORM): gameState => {
     switch (action.type) {
         case HYDRATE:
             console.log("hydrate")
@@ -45,3 +44,5 @@ export default (state: gameState = DEFAULT_GAME_STATE, action: GAME_STATE_TRANSF
     }
     return {...state}
 }
+
+export default gameStateReducer
